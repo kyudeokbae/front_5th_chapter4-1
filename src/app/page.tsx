@@ -15,9 +15,9 @@ export default function Home() {
         />
         <ol>
           <li>
-            Get started by editing <code>src/app/page.tsx</code>.
+            hanghae fe 4-1
           </li>
-          <li>Save and see your changes instantly.</li>
+          <li>kyudeok bae</li>
         </ol>
 
         <div className={styles.ctas}>
