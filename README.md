@@ -1,5 +1,7 @@
 # 프론트엔드 배포 파이프라인
 
+![image](https://github.com/user-attachments/assets/34443015-92e3-43f7-a6c6-1fef689b258b)
+
 1. **GitHub 저장소**
    - 메인 브랜치에 코드 푸시 시 워크플로우 트리거
    - GitHub Actions 실행 환경 구성
@@ -28,9 +30,9 @@
 ## 주요 개념
 
 - GitHub Actions과 CI/CD 도구: Continuous Integration / Continuous Deployment
-	- GitHub Actions는 GitHub에서 제공하는 CI/CD 자동화 도구입니다.
-	- 코드를 Push할 때 자동으로 테스트, 빌드, 배포 등의 워크플로우를 실행합니다.
-	- CI는 코드 변경 시 자동 테스트와 통합, CD는 변경된 코드를 자동 배포하는 개념입니다.
+  - GitHub Actions는 GitHub에서 제공하는 CI/CD 자동화 도구입니다.
+  - 코드를 Push할 때 자동으로 테스트, 빌드, 배포 등의 워크플로우를 실행합니다.
+  - CI는 코드 변경 시 자동 테스트와 통합, CD는 변경된 코드를 자동 배포하는 개념입니다.
 
 - S3와 스토리지: 정적 파일 호스팅용 객체 스토리지
   - Amazon S3(Simple Storage Service)는 AWS에서 제공하는 객체 기반 스토리지 서비스입니다.
@@ -57,15 +59,17 @@
 - CloudFront는 AWS의 CDN 서비스로, 전 세계 여러 엣지 로케이션에 캐시를 두고 콘텐츠를 사용자 가까이에서 제공함으로써 성능을 최적화합니다.
 
 - 성능 비교 (스크린샷 기반)
+<img width="1296" alt="스크린샷 2025-05-26 오후 11 08 29" src="https://github.com/user-attachments/assets/f9ab411f-a1fe-482a-b8e6-7154bf0796ae" />
+<img width="1283" alt="스크린샷 2025-05-27 오후 10 32 00" src="https://github.com/user-attachments/assets/7989429d-1631-4654-aa02-9ee1d463668c" />
 
-  - 📁 CloudFront 사용 (1번째 이미지 기준)
-    - 총 전송 용량: 199kB
-    - 총 로딩 시간: 125ms
-    - 주요 리소스의 로딩 시간: 대체로 13~19ms 수준의 응답 시간 기록
-  - 📁 S3 직접 접근 (2번째 이미지 기준)
+  - 📁 S3 직접 접근 (1번째 이미지 기준)
     - 총 전송 용량: 447kB
     - 총 로딩 시간: 1.09s
     - 주요 리소스 로딩 시간: 다수가 200ms 이상 소요됨 (최대 462ms)
+  - 📁 CloudFront 사용 (2번째 이미지 기준)
+    - 총 전송 용량: 199kB
+    - 총 로딩 시간: 125ms
+    - 주요 리소스의 로딩 시간: 대체로 13~19ms 수준의 응답 시간 기록
   - 전송 용량: S3(447kB) 대비 CloudFront(199kB)는 약 55.5% 감소
   - 로딩 시간: S3(1.09s) 대비 CloudFront(125ms)는 약 88.5% 감소
 
